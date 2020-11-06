@@ -7,7 +7,7 @@ export function terminal(): void {
   const route = () => `http://${appConfig.host}:${appConfig.port}`;
   console.log(``);
   console.log(
-    `Hello 👋, your app is ready on ${route()}${appConfig.routePrefix}`,
+    `Hello 👋, your app is ready on ${route()}/${appConfig.routePrefix}`,
   );
   console.log(`To shut it down, press <CTRL> + C at any time.`);
   console.log(``);
