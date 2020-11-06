@@ -1,18 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Controller, Get, Inject, Logger, LoggerService } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private configService: ConfigService,
+    @Inject(Logger) private readonly logger: LoggerService,
   ) {}
 
   @Get()
   getHello(): string {
-    const dbHost = this.configService.get<string>('database.host');
-    console.log('Host: ', dbHost);
+    this.logger.log('Testing Winston Logger');
     return this.appService.getHello();
   }
 }
