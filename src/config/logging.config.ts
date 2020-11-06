@@ -1,6 +1,8 @@
 import { registerAs } from '@nestjs/config';
 
+import { getEnv } from '../helpers/env';
+
 export default registerAs('logging', () => ({
-  level: process.env.LOG_LEVEL,
-  output: process.env.LOG_OUTPUT,
+  level: getEnv('LOG_LEVEL'),
+  output: getEnv('LOG_OUTPUT'),
 }));

@@ -1,12 +1,13 @@
 import { registerAs } from '@nestjs/config';
 
+import { getEnv } from '../helpers/env';
 import * as pkg from '../../package.json';
 
 export default registerAs('application', () => ({
-  name: process.env.APPLICATION_NAME,
+  name: getEnv('APPLICATION_NAME'),
   version: (pkg as any).version,
   description: (pkg as any).description,
-  host: process.env.APPLICATION_HOST,
-  port: process.env.APPLICATION_PORT,
-  routePrefix: process.env.APPLICATION_ROUTE_PREFIX,
+  host: getEnv('APPLICATION_HOST'),
+  port: getEnv('APPLICATION_PORT'),
+  routePrefix: getEnv('APPLICATION_ROUTE_PREFIX'),
 }));

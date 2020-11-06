@@ -1,11 +1,13 @@
 import { registerAs } from '@nestjs/config';
 
+import { getEnv, toBool } from '../helpers/env';
+
 export default registerAs('database', () => ({
-  host: process.env.TYPEORM_HOST,
-  port: process.env.TYPEORM_PORT,
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
-  synchronize: process.env.TYPEORM_SYNCHRONIZE,
-  logging: process.env.TYPEORM_LOGGING,
+  host: getEnv('TYPEORM_HOST'),
+  port: getEnv('TYPEORM_PORT'),
+  username: getEnv('TYPEORM_USERNAME'),
+  password: getEnv('TYPEORM_PASSWORD'),
+  database: getEnv('TYPEORM_DATABASE'),
+  synchronize: toBool(getEnv('TYPEORM_SYNCHRONIZE')),
+  logging: getEnv('TYPEORM_LOGGING'),
 }));
