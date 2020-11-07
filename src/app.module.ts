@@ -9,10 +9,6 @@ import applicationConfig from './config/application.config';
 import environmentConfig from './config/environment.config';
 import databaseConfig from './config/database.config';
 
-/**
- * Load Configurations
- */
-
 @Module({
   imports: [
     ConfigModule.forRoot({
