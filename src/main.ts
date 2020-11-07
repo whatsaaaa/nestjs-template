@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 
-import { AppModule } from './modules/app/app.module';
+import { AppModule } from './app.module';
 import { terminal } from './helpers/terminal';
 import { CustomLogger } from './modules/logger/logger.service';
 import applicationConfig from './config/application.config';
